@@ -1,5 +1,5 @@
 .form {
-  height: 330px;
+  height: 350px;
   width: 100%;
   background-color: white;
   border-radius: 10px;
@@ -31,7 +31,17 @@
   opacity: 0.5;
 }
 
-.form__input {
+.form__input__name {
+  width: 100%;
+  font-size: 14px;
+  height: 16px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  color: black;
+}
+
+.form__input__ocupation {
   width: 100%;
   font-size: 14px;
   height: 16px;
@@ -58,6 +68,6 @@
 /* chica */
 @media screen and (min-width: 320px) and (max-width: 768px) {
   .form {
-    width: 100%;
+    width: 90%;
   }
 }

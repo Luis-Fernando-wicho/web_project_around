@@ -43,4 +43,9 @@
     margin-bottom: 13px;
     justify-self: end;
   }
+  .popup__container {
+    grid-template-areas:
+      ". . x"
+      "form form form";
+  }
 }
