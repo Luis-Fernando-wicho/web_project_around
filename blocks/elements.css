@@ -1,0 +1,98 @@
+.elements {
+  width: 70%;
+  margin: 50px 0px 0px;
+  padding: 0%;
+  gap: 17px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.elements__element {
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  flex-direction: column;
+
+  /* animacion */
+  animation: animation-elements linear both; /* nombre de keyframes - animacion lineal - hacia ambos sentidos*/
+  animation-timeline: view(
+
+  ); /* scroll o cuanto se ve del elemento conrola la animacion */
+  animation-range: entry 0% cover 30%;
+}
+
+.elements__element__image {
+  width: 100%;
+  height: auto;
+}
+
+.elements__element__white {
+  display: flex;
+  justify-content: space-around;
+
+  border-radius: 0px 0px 15px 15px;
+
+  background-color: white;
+}
+
+.elements__element__white__title {
+  color: black;
+  font-size: 24px;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.elements__element__white__button {
+  background-color: white;
+  background-image: url("/images/Group.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border: none;
+  height: 19px;
+  width: 21px;
+
+  display: flex;
+  align-self: center;
+}
+
+.elements__element__white__button:hover {
+  opacity: 0.5;
+}
+
+/* .elements__element__white__button:active {
+  background-color: black;
+  background-image: url(/images/Union.svg);
+}
+
+.elements__element__white__button:visited {
+  background-color: black;
+  background-image: url(/images/Union.svg);
+}
+ */
+/* chica */
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .elements {
+    width: 90%;
+    margin: 50px 0px 0px;
+    padding: 0%;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  }
+}
+/* animacion */
+@keyframes animation-elements {
+  from {
+    opacity: 0; /* controla opacidad */
+    translate: 0 100px; /* controla movimiento inicial */
+    scale: 0.9; /* controla la escala */
+  }
+  to {
+    opacity: 1;
+    translate: 0 0; /* controla movimiento final */
+    scale: 1; /* controla la escala */
+  }
+}

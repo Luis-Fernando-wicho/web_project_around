@@ -1,0 +1,46 @@
+.popup__container {
+  width: 100%;
+  position: fixed;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    ". . x"
+    ". form .";
+
+  display: none;
+}
+.x {
+  grid-area: x;
+  height: 40px;
+  width: 40px;
+  align-self: flex-end;
+  background-image: url("/images/Close\ Icon.svg");
+  background-color: rgba(0, 0, 0, 0);
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border: none;
+}
+
+.x:hover {
+  opacity: 0.5;
+}
+/* chica */
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .flotante {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      ". x ."
+      ". form .";
+  }
+  .x {
+    height: 26px;
+    width: 26px;
+    margin-bottom: 13px;
+    justify-self: end;
+  }
+}

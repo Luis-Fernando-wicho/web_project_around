@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="luis Fernando" />
+    <meta name="description" content="pagina de homeland" />
+    <meta name="keywords" content="homeland" />
+    <title>"homeland"</title>
+
+    <link rel="stylesheet" href="./pages/styles.css" />
+    <link rel="shortcut icon" href="por definir" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- header -->
+      <header class="header">
+        <img class="header__logo" src="/images/Vector.svg" alt="around" />
+        <div class="header__line"></div>
+      </header>
+      <!-- main -->
+      <main class="main">
+        <!-- informacion perfil -->
+        <div class="profile">
+          <img class="profile__avatar" src="/images/01.jpg" alt="" />
+          <div class="profile__info">
+            <h2 class="profile__info profile__info__name">
+              luis Fernando martinez santos
+            </h2>
+            <button
+              id="infoedit"
+              class="profile__info profile__info__edit"
+            ></button>
+            <h2 class="profile__info profile__info__ocupation">
+              ingeniero Mecatronico
+            </h2>
+          </div>
+          <button class="profile__add_button">
+            <img
+              class="profile__info__edit_image"
+              src="/images/Vector (1).svg"
+              alt=""
+            />
+          </button>
+        </div>
+        <!-- imagenes -->
+        <ul class="elements">
+          <li class="elements__element">
+            <img
+              class="elements__element__image"
+              src="/images/Valle de Yosemite.png"
+              alt=""
+            />
+            <div class="elements__element__white">
+              <h2 class="elements__element__white__title">
+                Valle de Yosemite Valle de Yosemite
+              </h2>
+              <button class="elements__element__white__button"></button>
+            </div>
+          </li>
+          <li class="elements__element">
+            <img
+              class="elements__element__image"
+              src="/images/Lago Louise.png"
+              alt=""
+            />
+            <div class="elements__element__white">
+              <h2 class="elements__element__white__title">Valle de Yosemite</h2>
+              <button class="elements__element__white__button"></button>
+            </div>
+          </li>
+          <li class="elements__element">
+            <img
+              class="elements__element__image"
+              src="/images/Montañas Calvas.png"
+              alt=""
+            />
+
+            <div class="elements__element__white">
+              <h2 class="elements__element__white__title">Valle de Yosemite</h2>
+              <button class="elements__element__white__button"></button>
+            </div>
+          </li>
+          <li class="elements__element">
+            <img
+              class="elements__element__image"
+              src="/images/Latemar.png"
+              alt=""
+            />
+            <div class="elements__element__white">
+              <h2 class="elements__element__white__title">Valle de Yosemite</h2>
+              <button class="elements__element__white__button"></button>
+            </div>
+          </li>
+          <li class="elements__element">
+            <img
+              class="elements__element__image"
+              src="/images/Vanois National....png"
+            />
+            <div class="elements__element__white">
+              <h2 class="elements__element__white__title">Valle de Yosemite</h2>
+              <button class="elements__element__white__button"></button>
+            </div>
+          </li>
+          <li class="elements__element">
+            <img
+              class="elements__element__image"
+              src="/images/Lago di Braies.png"
+              alt=""
+            />
+            <div class="elements__element__white">
+              <h2 class="elements__element__white__title">Valle de Yosemite</h2>
+              <button class="elements__element__white__button"></button>
+            </div>
+          </li>
+        </ul>
+      </main>
+      <!-- footer -->
+      <footer class="footer">
+        <p class="footer__text">© 2024 Around The U.S.</p>
+      </footer>
+      <!-- ventana flotante -->
+      <section class="popup__container">
+        <button class="x"></button>
+        <div class="form">
+          <h2 class="form__title">Editar perfil</h2>
+          <form class="form__dates" action="/procesar-formulario" method="POST">
+            <label class="form__label" for="nombre">
+              <input
+                class="form__input__name"
+                type="text"
+                placeholder="Nombre"
+                id="nombre"
+                required
+              />
+            </label>
+            <label class="form__label" for="nombre">
+              <input
+                class="form__input__ocupation"
+                type="text"
+                placeholder="Ocupacion"
+                id="nombre"
+                required
+              />
+            </label>
+            <button id="SaveButton" type="submit" class="form__submit">
+              Guardar
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

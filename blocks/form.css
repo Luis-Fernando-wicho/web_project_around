@@ -1,0 +1,63 @@
+.form {
+  height: 330px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  grid-area: form;
+}
+.form__title {
+  color: black;
+  text-align: left;
+  margin: 34px 10% 0px;
+  font-size: clamp(18px, 3vw, 30px);
+}
+.form__dates {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 54px;
+}
+.form__label {
+  color: black;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  opacity: 0.5;
+}
+
+.form__input {
+  width: 100%;
+  font-size: 14px;
+  height: 16px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  color: black;
+}
+
+.form__submit {
+  width: 80%;
+  height: 50px;
+  margin-top: 48px;
+  color: white;
+  background-color: black;
+  border-color: black;
+  border-radius: 5px;
+  border: solid 1px;
+}
+
+.form__submit:hover {
+  opacity: 0.5;
+}
+/* chica */
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .form {
+    width: 100%;
+  }
+}
