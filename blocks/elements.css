@@ -7,7 +7,7 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.elements__element {
+.element {
   list-style: none;
   background-color: rgba(255, 255, 255, 0);
   display: flex;
@@ -21,12 +21,12 @@
   animation-range: entry 0% cover 30%;
 }
 
-.elements__element_image {
+.element__image {
   width: 100%;
   height: auto;
 }
 
-.elements__element_white {
+.element__white {
   display: flex;
   justify-content: space-around;
 
@@ -35,7 +35,7 @@
   background-color: white;
 }
 
-.elements__element_white__title {
+.element__white_title {
   color: black;
   font-size: 24px;
   width: 200px;
@@ -44,7 +44,7 @@
   text-overflow: ellipsis;
 }
 
-.elements__element_white__button {
+.element__white_button {
   background-color: white;
   background-image: url("/images/Group.svg");
   background-repeat: no-repeat;
@@ -58,7 +58,7 @@
   align-self: center;
 }
 
-.elements__element__white__button:hover {
+.elements__element_white__button:hover {
   opacity: 0.5;
 }
 

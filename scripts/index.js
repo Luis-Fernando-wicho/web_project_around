@@ -56,7 +56,7 @@ function CambiarNombre(event) {
 formForm.addEventListener("submit", CambiarNombre);
 
 /* like button */
-let likebutton = document.querySelector(".elements__element__white__button");
+let likebutton = document.querySelector(".element__white_button");
 
 function cerrarLike() {
   likebutton.setAttribute("style", "background-image: url(/images/Union.svg);");
