@@ -1,11 +1,11 @@
 /* boton para editar */
 const InfoEdit = document.querySelector(".profile__info_edit");
 console.log(InfoEdit);
-const VentanaFlotante = document.querySelector(".popup__container");
+const VentanaFlotante = document.querySelector(".popup");
 console.log(VentanaFlotante);
 
-let NewNameProfile = document.querySelector(".form__input__name");
-let NewOcupationProfile = document.querySelector(".form__input__ocupation");
+let NewNameProfile = document.querySelector(".form__input_name");
+let NewOcupationProfile = document.querySelector(".form__input_ocupation");
 
 function disabledButton() {
   if (
@@ -33,7 +33,7 @@ console.log(SaveButton);
 
 /* boton cerrar */
 
-const ButtonX = document.querySelector(".x");
+const ButtonX = document.querySelector(".popup__x");
 
 function CerrarVentana() {
   VentanaFlotante.removeAttribute("style", "display: grid;");
@@ -42,7 +42,7 @@ function CerrarVentana() {
 ButtonX.addEventListener("click", CerrarVentana);
 
 /* CAMBIAR NOMBRE */
-let formForm = document.querySelector(".form__dates");
+let formForm = document.querySelector(".form");
 
 function CambiarNombre(event) {
   event.preventDefault();
