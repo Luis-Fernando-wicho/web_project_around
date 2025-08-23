@@ -4,8 +4,8 @@ console.log(InfoEdit);
 const VentanaFlotante = document.querySelector(".popup");
 console.log(VentanaFlotante);
 
-let NewNameProfile = document.querySelector(".form__input_name");
-let NewOcupationProfile = document.querySelector(".form__input_ocupation");
+let NewNameProfile = document.querySelector(".form__label_name");
+let NewOcupationProfile = document.querySelector(".form__label_ocupationn");
 
 function disabledButton() {
   if (
