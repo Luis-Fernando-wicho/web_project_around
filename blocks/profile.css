@@ -24,7 +24,7 @@
   margin: 0px 15% 0px 30px;
 }
 
-.profile__info__name {
+.profile__info_name {
   margin: 0%;
   display: block;
   font-size: clamp(40px, 3vw, 52px);
@@ -37,7 +37,7 @@
   text-overflow: ellipsis;
 }
 
-.profile__info__edit {
+.profile__info_edit {
   height: 24px;
   width: 24px;
   margin: 0px 0px 0px 18px;
@@ -52,10 +52,10 @@
   justify-self: flex-start;
 }
 
-.profile__info__edit:hover {
+.profile__info_edit:hover {
   opacity: 0.5;
 }
-.profile__info__ocupation {
+.profile__info_ocupation {
   margin-top: 16px;
   font-size: clamp(14px, 1vw, 25px);
   width: 100%;
@@ -109,7 +109,7 @@
       "ar3 ar3";
   }
 
-  .profile__info__name {
+  .profile__info_name {
     font-size: 22px;
     grid-area: ar1;
     text-align: end;
@@ -118,13 +118,13 @@
     margin: 0%;
   }
 
-  .profile__info__edit {
+  .profile__info_edit {
     grid-area: ar2;
     margin: 0px 0px 0px 10px;
     height: 18px;
     width: 18px;
   }
-  .profile__info__ocupation {
+  .profile__info_ocupation {
     font-size: 14px;
     grid-area: ar3;
     display: flex;
