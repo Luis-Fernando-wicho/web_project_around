@@ -21,12 +21,12 @@
   animation-range: entry 0% cover 30%;
 }
 
-.elements__element__image {
+.elements__element_image {
   width: 100%;
   height: auto;
 }
 
-.elements__element__white {
+.elements__element_white {
   display: flex;
   justify-content: space-around;
 
@@ -35,7 +35,7 @@
   background-color: white;
 }
 
-.elements__element__white__title {
+.elements__element_white__title {
   color: black;
   font-size: 24px;
   width: 200px;
@@ -44,7 +44,7 @@
   text-overflow: ellipsis;
 }
 
-.elements__element__white__button {
+.elements__element_white__button {
   background-color: white;
   background-image: url("/images/Group.svg");
   background-repeat: no-repeat;
