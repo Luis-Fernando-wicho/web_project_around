@@ -64,7 +64,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.profile__add_button {
+.profile__add-button {
   width: 150px;
   height: 60px;
   margin: 0px;
@@ -80,13 +80,12 @@
   justify-content: center;
   align-items: center;
 }
-.profile__info__edit_image {
+.profile__add-button:hover {
+  opacity: 0.5;
+}
+.profile__add-button_image {
   width: 16px;
   height: 16px;
-}
-
-.profile__add_button:hover {
-  opacity: 0.5;
 }
 
 /* chica */
@@ -133,7 +132,7 @@
     margin: 14px 0px;
   }
 
-  .profile__add_button {
+  .profile__add-button {
     width: 288px;
     height: 50px;
     margin: 0px;

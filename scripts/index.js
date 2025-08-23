@@ -1,5 +1,5 @@
 /* boton para editar */
-const InfoEdit = document.querySelector(".profile__info__edit");
+const InfoEdit = document.querySelector(".profile__info_edit");
 console.log(InfoEdit);
 const VentanaFlotante = document.querySelector(".popup__container");
 console.log(VentanaFlotante);
@@ -46,8 +46,8 @@ let formForm = document.querySelector(".form__dates");
 
 function CambiarNombre(event) {
   event.preventDefault();
-  let NameProfile = document.querySelector(".profile__info__name");
-  let OcupationProfile = document.querySelector(".profile__info__ocupation");
+  let NameProfile = document.querySelector(".profile__info_name");
+  let OcupationProfile = document.querySelector(".profile__info_ocupation");
 
   NameProfile.textContent = NewNameProfile.value;
   OcupationProfile.textContent = NewOcupationProfile.value;
