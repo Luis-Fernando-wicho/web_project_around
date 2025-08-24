@@ -29,6 +29,8 @@ function CerrarVentana() {
 }
 ButtonX.addEventListener("click", CerrarVentana);
 
+SaveButton.addEventListener("click", CerrarVentana);
+
 /* CAMBIAR NOMBRE */
 
 function CambiarNombre(event) /* no sube datos */ {

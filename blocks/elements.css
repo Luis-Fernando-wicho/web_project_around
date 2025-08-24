@@ -4,7 +4,7 @@
   padding: 0%;
   gap: 17px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
 }
 
 .element {
@@ -73,7 +73,9 @@
   background-image: url(/images/Union.svg);
 }
  */
+
 /* chica */
+
 @media screen and (min-width: 320px) and (max-width: 768px) {
   .elements {
     width: 90%;
@@ -84,7 +86,9 @@
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   }
 }
+
 /* animacion */
+
 @keyframes animation-elements {
   from {
     opacity: 0; /* controla opacidad */

@@ -1,5 +1,6 @@
 .popup {
   width: 100%;
+  height: 100vi;
   position: fixed;
   top: -25%;
   display: grid;
@@ -11,6 +12,7 @@
     ". . .";
 
   display: none;
+  backdrop-filter: blur(10px);
 }
 .popup__x {
   grid-area: x;
