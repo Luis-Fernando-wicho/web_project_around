@@ -26,6 +26,25 @@
   height: auto;
 }
 
+.element__trash {
+  background-image: url("/images/Trash.svg");
+  background-color: rgba(240, 248, 255, 0);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border: none;
+  top: 18px;
+  right: 15px;
+  height: 19px;
+  width: 18px;
+
+  position: absolute;
+}
+
+.element__trash:hover {
+  opacity: 0.5;
+}
+
 .element__white {
   display: flex;
   justify-content: space-around;
@@ -59,8 +78,23 @@
   align-self: center;
 }
 
-.elements__element_white__button:hover {
+.element__white_button:hover {
   opacity: 0.5;
+  scale: 1.5;
+}
+
+.element__white_button-active {
+  background-color: rgb(255, 7, 7);
+  background-image: url("/images/likeactive.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border: none;
+  height: 19px;
+  width: 21px;
+
+  display: flex;
+  align-self: center;
 }
 
 /* .elements__element__white__button:active {

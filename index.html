@@ -52,6 +52,7 @@
               src="/images/Valle de Yosemite.png"
               alt=""
             />
+            <button class="element__trash"></button>
             <div class="element__white">
               <h2 class="element__white element__white_title">
                 Valle de Yosemite
@@ -118,7 +119,9 @@
       <footer class="footer">
         <p class="footer__text">© 2024 Around The U.S.</p>
       </footer>
+
       <!-- ventana flotante -->
+
       <section class="popup">
         <button class="popup__x"></button>
         <div class="popup__container">
@@ -142,13 +145,70 @@
                 required
               />
             </label>
-            <button id="SaveButton" type="submit" class="form__submit">
+            <button
+              id="SaveButton"
+              type="submit"
+              class="form__submit form__submit_disable"
+            >
+              Guardar
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- popup places -->
+
+      <section class="popupPlaces">
+        <button class="popupPlaces__x"></button>
+        <div class="popupPlaces__container">
+          <h2 class="popupPlaces__container popupPlaces__container_title">
+            Nuevo Lugar
+          </h2>
+          <form class="formPlaces" action="/procesar-formulario" method="POST">
+            <label class="formPlaces__label" for="nombre">
+              <input
+                class="formPlaces__label formPlaces__label_name"
+                type="text"
+                placeholder="Nombre"
+                id="nombre"
+                required
+              />
+            </label>
+            <label class="formPlaces__label" for="nombre">
+              <input
+                class="formPlaces__label formPlaces__label_ocupation"
+                type="text"
+                placeholder="Ocupacion"
+                id="nombre"
+                required
+              />
+            </label>
+            <button
+              id="SaveButtonPlaces"
+              type="submit"
+              class="formPlaces__submit"
+            >
               Guardar
             </button>
           </form>
         </div>
       </section>
     </div>
+    <!-- template -->
+    <template>
+      <li class="element">
+        <img
+          class="element__image"
+          src="/images/Valle de Yosemite.png"
+          alt=""
+        />
+        <button class="element__trash"></button>
+        <div class="element__white">
+          <h2 class="element__white element__white_title">Valle de Yosemite</h2>
+          <button class="element__white element__white_button"></button>
+        </div>
+      </li>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
