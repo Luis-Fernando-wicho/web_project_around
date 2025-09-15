@@ -45,75 +45,7 @@
           </button>
         </div>
         <!-- imagenes -->
-        <ul class="elements">
-          <li class="element">
-            <img
-              class="element__image"
-              src="/images/Valle de Yosemite.png"
-              alt=""
-            />
-            <button class="element__trash"></button>
-            <div class="element__white">
-              <h2 class="element__white element__white_title">
-                Valle de Yosemite
-              </h2>
-              <button class="element__white element__white_button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="/images/Lago Louise.png" alt="" />
-            <div class="element__white">
-              <h2 class="element__white element__white_title">Lago Louise</h2>
-              <button class="element__white element__white_button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img
-              class="element__image"
-              src="/images/Montañas Calvas.png"
-              alt=""
-            />
-            <div class="element__white">
-              <h2 class="element__white element__white_title">
-                Montañas Calvas
-              </h2>
-              <button class="element__white element__white_button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="/images/Latemar.png" alt="" />
-            <div class="element__white">
-              <h2 class="element__white element__white_title">Latemar</h2>
-              <button class="element__white element__white_button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img
-              class="element__image"
-              src="/images/Vanois National....png"
-              alt=""
-            />
-            <div class="element__white">
-              <h2 class="element__white element__white_title">
-                Vanois National
-              </h2>
-              <button class="element__white element__white_button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img
-              class="element__image"
-              src="/images/Lago di Braies.png"
-              alt=""
-            />
-            <div class="element__white">
-              <h2 class="element__white element__white_title">
-                Lago di Braies
-              </h2>
-              <button class="element__white element__white_button"></button>
-            </div>
-          </li>
-        </ul>
+        <ul class="elements"></ul>
       </main>
       <!-- footer -->
       <footer class="footer">
@@ -157,14 +89,14 @@
       </section>
 
       <!-- popup places -->
-
+      <dialog></dialog>
       <section class="popupPlaces">
         <button class="popupPlaces__x"></button>
         <div class="popupPlaces__container">
           <h2 class="popupPlaces__container popupPlaces__container_title">
             Nuevo Lugar
           </h2>
-          <form class="formPlaces" action="/procesar-formulario" method="POST">
+          <form class="formPlaces">
             <label class="formPlaces__label" for="nombre">
               <input
                 class="formPlaces__label formPlaces__label_name"
@@ -195,16 +127,12 @@
       </section>
     </div>
     <!-- template -->
-    <template>
+    <template id="placetemplate">
       <li class="element">
-        <img
-          class="element__image"
-          src="/images/Valle de Yosemite.png"
-          alt=""
-        />
+        <img class="element__image" />
         <button class="element__trash"></button>
         <div class="element__white">
-          <h2 class="element__white element__white_title">Valle de Yosemite</h2>
+          <h2 class="element__white element__white_title"></h2>
           <button class="element__white element__white_button"></button>
         </div>
       </li>

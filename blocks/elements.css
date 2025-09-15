@@ -14,16 +14,15 @@
   flex-direction: column;
 
   /* animacion */
-  animation: animation-elements linear both; /* nombre de keyframes - animacion lineal - hacia ambos sentidos*/
-  animation-timeline: view(
-
-  ); /* scroll o cuanto se ve del elemento conrola la animacion */
+  animation: animation-elements linear both;
+  animation-timeline: view();
   animation-range: entry 0% cover 30%;
 }
 
 .element__image {
   width: 100%;
   height: auto;
+  border-radius: 15px 15px 0px 0px;
 }
 
 .element__trash {
@@ -93,20 +92,10 @@
   height: 19px;
   width: 21px;
 
+  scale: 1.5;
   display: flex;
   align-self: center;
 }
-
-/* .elements__element__white__button:active {
-  background-color: black;
-  background-image: url(/images/Union.svg);
-}
-
-.elements__element__white__button:visited {
-  background-color: black;
-  background-image: url(/images/Union.svg);
-}
- */
 
 /* chica */
 

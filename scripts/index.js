@@ -19,6 +19,7 @@ const likebutton = document.querySelectorAll(".element__white_button");
 
 const SaveButton = document.querySelector(".form__submit");
 const saveButtonPlaces = document.querySelector(".formPlaces__submit");
+
 ////////////////////////////////////////////////////////////////////
 /* mostrar ventana flotante */
 function ProfileEdit() {
@@ -41,7 +42,7 @@ function CerrarVentana() {
 }
 ButtonX.addEventListener("click", CerrarVentana);
 
-saveButtonPlaces.addEventListener("click", CerrarVentana);
+SaveButton.addEventListener("click", cerrarVentanaPlaces);
 
 /* cerrar ventana flotante Places */
 
@@ -50,7 +51,7 @@ function cerrarVentanaPlaces() {
 }
 buttonXPlaces.addEventListener("click", cerrarVentanaPlaces);
 
-SaveButton.addEventListener("click", cerrarVentanaPlaces);
+saveButtonPlaces.addEventListener("click", CerrarVentana);
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -69,40 +70,88 @@ formForm.addEventListener("submit", CerrarVentana);
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-/* like button */
-/* function Like() {
-  likebutton.setAttribute("style", "background-image: url(/images/Union.svg);");
-}
-likebutton.addEventListener("click", Like); */
+const element = document.querySelector(".element");
+const elements = document.querySelector(".elements");
 
-/* likebutton.addEventListener("click", function (evt) {
-  evt.target.classList.toggle(".element__white_button-active");
-}); */
+const template = document.querySelector("#placetemplate").content;
 
-likebutton.addEventListener("click", function (evt) {
-  evt.target.classList.toggle(".element__white_button-active");
+const initialCards = [
+  {
+    name: "Valle de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
+  },
+  {
+    name: "Montañas Calvas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
+  },
+  {
+    name: "Parque Nacional de la Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+  },
+];
+
+initialCards.forEach((el) => {
+  template.querySelector("img").setAttribute("src", el.link);
+  template.querySelector("img").setAttribute("alt", el.name);
+
+  template.querySelector("h2").textContent = el.name;
+
+  const clone = document.importNode(template, true);
+
+  clone
+    .querySelector(".element__white_button")
+    .addEventListener("click", function (evt) {
+      console.log("funciona click");
+      evt.target.classList.toggle("element__white_button-active");
+    });
+
+  elements.appendChild(clone);
 });
 
-/////////////////////////////////////////////////////////////////////////////////////
-
-/* desabilitar botton "trabajando" */
-
-function disabledButton() {
-  if (
-    NewNameProfile.value.length === 0 &&
-    NewOcupationProfile.value.length === 0
-  ) {
-    SaveButton.setAttribute("disabled", true);
-    SaveButton.classList.add("form__submit_disable");
-  } else {
-    SaveButton.removeAttribute("disabled");
-    SaveButton.classList.add("form__submit");
-  }
-}
-
-function disabledButton() {
-  SaveButton.setAttribute("disabled", true);
-  SaveButton.classList.add("form__submit_disable");
-}
+//element.appendChild(elements);
 
 //////////////////////////////////////////////////////////////////////////////////////
+
+/* agregar targetas */
+
+function addPlace(placeValue, imageValue) {
+  const template = document.querySelector("#placetemplate").content;
+  const element = template.querySelector(".element").cloneNode(true);
+
+  template.querySelector("h2").textContent = placeValue;
+
+  template.querySelector("img").setAttribute("src", imageValue);
+  template.querySelector("img").setAttribute("alt", placeValue);
+
+  element
+    .querySelector(".element__white_button")
+    .addEventListener("click", function (evt) {
+      evt.target.classList.toggle("element__white_button-active");
+    });
+
+  elements.append(element);
+}
+
+saveButtonPlaces.addEventListener("click", function () {
+  const imagePlace = document.querySelector(".formPlaces__label_name");
+  const namePlace = document.querySelector(".formPlaces__label_ocupation");
+
+  addPlace(namePlace.value, imagePlace.value);
+
+  imagePlace.value = "";
+  namePlace.value = "";
+});
+
+////////////////////////////////////////////////////////////
