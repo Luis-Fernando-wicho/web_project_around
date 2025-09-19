@@ -19,6 +19,7 @@ const likebutton = document.querySelectorAll(".element__white_button");
 
 const SaveButton = document.querySelector(".form__submit");
 const saveButtonPlaces = document.querySelector(".formPlaces__submit");
+const buttontrash = document.querySelectorAll(".element__trash");
 
 ////////////////////////////////////////////////////////////////////
 /* mostrar ventana flotante */
@@ -33,6 +34,7 @@ function placeEdit() {
   VentanaFlotantePlaces.setAttribute("style", "display: grid;");
 }
 PlacesEdit.addEventListener("click", placeEdit);
+
 ////////////////////////////////////////////////////////////////////////////
 
 /* cerrar ventana flotante */
@@ -42,8 +44,6 @@ function CerrarVentana() {
 }
 ButtonX.addEventListener("click", CerrarVentana);
 
-SaveButton.addEventListener("click", cerrarVentanaPlaces);
-
 /* cerrar ventana flotante Places */
 
 function cerrarVentanaPlaces() {
@@ -51,24 +51,27 @@ function cerrarVentanaPlaces() {
 }
 buttonXPlaces.addEventListener("click", cerrarVentanaPlaces);
 
-saveButtonPlaces.addEventListener("click", CerrarVentana);
-
 ///////////////////////////////////////////////////////////////////////////////////
 
 /* CAMBIAR NOMBRE */
 
 function CambiarNombre(event) /* no sube datos */ {
   event.preventDefault();
-  NameProfile.textContent = NewNameProfile.value;
-  OcupationProfile.textContent = NewOcupationProfile.value;
 
-  NewNameProfile.value = "";
-  NewOcupationProfile.value = "";
+  if (NewNameProfile.value !== "" && NewOcupationProfile.value !== "") {
+    NameProfile.textContent = NewNameProfile.value;
+    OcupationProfile.textContent = NewOcupationProfile.value;
+
+    NewNameProfile.value = "";
+    NewOcupationProfile.value = "";
+    CerrarVentana();
+  }
 }
 formForm.addEventListener("submit", CambiarNombre);
-formForm.addEventListener("submit", CerrarVentana);
 
 ///////////////////////////////////////////////////////////////////////////////////////
+
+/* agregar 6 targetas */
 
 const element = document.querySelector(".element");
 const elements = document.querySelector(".elements");
@@ -113,14 +116,42 @@ initialCards.forEach((el) => {
   clone
     .querySelector(".element__white_button")
     .addEventListener("click", function (evt) {
-      console.log("funciona click");
       evt.target.classList.toggle("element__white_button-active");
     });
 
-  elements.appendChild(clone);
-});
+  /* eliminar targeta */
+  clone
+    .querySelector(".element__trash")
+    .addEventListener("click", function (evt) {
+      const item = evt.target.parentElement;
+      elements.removeChild(item);
+    });
 
-//element.appendChild(elements);
+  /* abrir img */
+
+  function imgBig() {
+    imgOpen.setAttribute("style", "display: grid;");
+  }
+  clone
+    .querySelector(".element__image")
+    .addEventListener("click", function (evt) {
+      imgBig();
+      const textImg = document.querySelector(".img_open__text");
+      const newIextImg = document.querySelector(".element__white_title");
+      textImg.textContent = el.name;
+
+      const srcImg = document.querySelector(".img_open__img");
+      const newsrcImg = document.querySelector(".element__image");
+      srcImg.src = el.link;
+    });
+
+  elements.appendChild(clone);
+
+  template.querySelector("img").setAttribute("src", "");
+  template.querySelector("img").setAttribute("alt", "");
+
+  template.querySelector("h2").textContent = " ";
+});
 
 //////////////////////////////////////////////////////////////////////////////////////
 
@@ -130,10 +161,10 @@ function addPlace(placeValue, imageValue) {
   const template = document.querySelector("#placetemplate").content;
   const element = template.querySelector(".element").cloneNode(true);
 
-  template.querySelector("h2").textContent = placeValue;
+  element.querySelector("h2").textContent = placeValue;
 
-  template.querySelector("img").setAttribute("src", imageValue);
-  template.querySelector("img").setAttribute("alt", placeValue);
+  element.querySelector("img").setAttribute("src", imageValue);
+  element.querySelector("img").setAttribute("alt", placeValue);
 
   element
     .querySelector(".element__white_button")
@@ -141,17 +172,55 @@ function addPlace(placeValue, imageValue) {
       evt.target.classList.toggle("element__white_button-active");
     });
 
-  elements.append(element);
+  /* eliminar targeta */
+
+  element
+    .querySelector(".element__trash")
+    .addEventListener("click", function (evt) {
+      const item = evt.target.parentElement;
+      elements.removeChild(item);
+    });
+
+  /* abrir img */
+
+  function imgBig() {
+    imgOpen.setAttribute("style", "display: grid;");
+  }
+  element
+    .querySelector(".element__image")
+    .addEventListener("click", function (evt) {
+      imgBig();
+      const textImg = document.querySelector(".img_open__text");
+      textImg.textContent = placeValue;
+
+      const srcImg = document.querySelector(".img_open__img");
+      srcImg.src = imageValue;
+    });
+
+  elements.prepend(element);
 }
 
 saveButtonPlaces.addEventListener("click", function () {
-  const imagePlace = document.querySelector(".formPlaces__label_name");
-  const namePlace = document.querySelector(".formPlaces__label_ocupation");
+  const namePlace = document.querySelector(".formPlaces__label_name");
+  const imagePlace = document.querySelector(".formPlaces__label_ocupation");
 
-  addPlace(namePlace.value, imagePlace.value);
+  if (namePlace.value !== "" && imagePlace.value !== "") {
+    addPlace(namePlace.value, imagePlace.value);
 
-  imagePlace.value = "";
-  namePlace.value = "";
+    imagePlace.value = "";
+    namePlace.value = "";
+    cerrarVentanaPlaces();
+  }
 });
 
 ////////////////////////////////////////////////////////////
+
+/* mostrar img flotante */
+const imgOpen = document.querySelector(".img_open");
+const imgButton = document.querySelector(".element__image");
+const imgX = document.querySelector(".img_open__x");
+
+function CerrarImg() {
+  imgOpen.removeAttribute("style", "display: grid;");
+}
+imgX.addEventListener("click", CerrarImg);

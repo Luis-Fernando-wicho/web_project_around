@@ -22,6 +22,8 @@
 .element__image {
   width: 100%;
   height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
   border-radius: 15px 15px 0px 0px;
 }
 
@@ -40,8 +42,13 @@
   position: absolute;
 }
 
+.element__trash2 {
+  background-color: rgb(255, 0, 0);
+  scale: 1.5;
+}
 .element__trash:hover {
   opacity: 0.5;
+  scale: 1.2;
 }
 
 .element__white {
@@ -83,7 +90,7 @@
 }
 
 .element__white_button-active {
-  background-color: rgb(255, 7, 7);
+  background-color: rgba(255, 7, 7, 0);
   background-image: url("/images/likeactive.svg");
   background-repeat: no-repeat;
   background-size: contain;
