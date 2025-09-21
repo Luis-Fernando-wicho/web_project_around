@@ -12,16 +12,21 @@
 
     <link rel="shortcut icon" href="Homeland" type="image/x-icon" />
   </head>
+
   <body>
     <div class="page">
-      <!-- header -->
+      <!-- header - encabezado -->
+
       <header class="header">
         <img class="header__logo" src="/images/Vector.svg" alt="around" />
         <div class="header__line"></div>
       </header>
-      <!-- main -->
+
+      <!-- main - contenido de pagina -->
+
       <main class="main">
         <!-- informacion perfil -->
+
         <div class="profile">
           <img class="profile__avatar" src="/images/01.jpg" alt="" />
           <div class="profile__info">
@@ -44,17 +49,23 @@
             />
           </button>
         </div>
-        <!-- imagenes -->
+
+        <!-- imagenes / Cards -->
+
         <ul class="elements"></ul>
       </main>
-      <!-- footer -->
+
+      <!-- footer - pie de pagina -->
+
       <footer class="footer">
         <p class="footer__text">© 2024 Around The U.S.</p>
       </footer>
 
-      <!-- ventana flotante -->
+      <!-- //////////// ventana flotantes ///////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-      <section class="popup">
+      <!-- popup informacion de perfil  -->
+
+      <div class="popup">
         <button class="popup__x"></button>
         <div class="popup__container">
           <h2 class="popup__container popup__container_title">Editar perfil</h2>
@@ -86,11 +97,10 @@
             </button>
           </form>
         </div>
-      </section>
+      </div>
 
       <!-- popup places -->
-      <dialog></dialog>
-      <section class="popupPlaces">
+      <div class="popupPlaces">
         <button class="popupPlaces__x"></button>
         <div class="popupPlaces__container">
           <h2 class="popupPlaces__container popupPlaces__container_title">
@@ -124,15 +134,19 @@
             </button>
           </form>
         </div>
-      </section>
-      <!-- imgbig -->
+      </div>
+
+      <!-- mostrar imagen grande ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
       <div class="img_open">
         <button class="img_open__x"></button>
         <img src="" alt="" class="img_open__img" />
         <p class="img_open__text"></p>
       </div>
     </div>
-    <!-- template -->
+
+    <!-- template cards ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
     <template id="placetemplate">
       <li class="element">
         <img class="element__image" />
