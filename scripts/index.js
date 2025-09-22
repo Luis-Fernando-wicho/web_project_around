@@ -15,10 +15,8 @@ const NewOcupationProfile = document.querySelector(".form__label_ocupation");
 
 let formForm = document.querySelector(".form");
 
-const likebutton = document.querySelectorAll(".element__white_button");
-
 const SaveButton = document.querySelector(".form__submit");
-const saveButtonPlaces = document.querySelector(".formPlaces__submit");
+
 const buttontrash = document.querySelectorAll(".element__trash");
 
 ////////////////////////////////////////////////////////////////////
@@ -73,9 +71,7 @@ formForm.addEventListener("submit", CambiarNombre);
 
 /* agregar 6 targetas */
 
-const element = document.querySelector(".element");
 const elements = document.querySelector(".elements");
-
 const template = document.querySelector("#placetemplate").content;
 
 const initialCards = [
@@ -106,51 +102,7 @@ const initialCards = [
 ];
 
 initialCards.forEach((el) => {
-  template.querySelector("img").setAttribute("src", el.link);
-  template.querySelector("img").setAttribute("alt", el.name);
-
-  template.querySelector("h2").textContent = el.name;
-
-  const clone = document.importNode(template, true);
-
-  clone
-    .querySelector(".element__white_button")
-    .addEventListener("click", function (evt) {
-      evt.target.classList.toggle("element__white_button-active");
-    });
-
-  /* eliminar targeta */
-  clone
-    .querySelector(".element__trash")
-    .addEventListener("click", function (evt) {
-      const item = evt.target.parentElement;
-      elements.removeChild(item);
-    });
-
-  /* abrir img */
-
-  function imgBig() {
-    imgOpen.setAttribute("style", "display: grid;");
-  }
-  clone
-    .querySelector(".element__image")
-    .addEventListener("click", function (evt) {
-      imgBig();
-      const textImg = document.querySelector(".img_open__text");
-      const newIextImg = document.querySelector(".element__white_title");
-      textImg.textContent = el.name;
-
-      const srcImg = document.querySelector(".img_open__img");
-      const newsrcImg = document.querySelector(".element__image");
-      srcImg.src = el.link;
-    });
-
-  elements.appendChild(clone);
-
-  template.querySelector("img").setAttribute("src", "");
-  template.querySelector("img").setAttribute("alt", "");
-
-  template.querySelector("h2").textContent = " ";
+  addPlace(el.name, el.link);
 });
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -158,55 +110,66 @@ initialCards.forEach((el) => {
 /* agregar targetas */
 
 function addPlace(placeValue, imageValue) {
-  const template = document.querySelector("#placetemplate").content;
   const element = template.querySelector(".element").cloneNode(true);
+  const img = element.querySelector(".element__image");
+  const imgText = element.querySelector(".element__white_title");
 
-  element.querySelector("h2").textContent = placeValue;
+  /* agregar valores a targetas */
 
-  element.querySelector("img").setAttribute("src", imageValue);
-  element.querySelector("img").setAttribute("alt", placeValue);
+  imgText.textContent = placeValue;
+  img.setAttribute("alt", placeValue);
 
-  element
-    .querySelector(".element__white_button")
-    .addEventListener("click", function (evt) {
-      evt.target.classList.toggle("element__white_button-active");
-    });
+  img.setAttribute("src", imageValue);
+
+  /* boton like */
+  const likeButton = element.querySelector(".element__white_button");
+
+  likeButton.addEventListener("click", function (evt) {
+    evt.target.classList.toggle("element__white_button-active");
+  });
 
   /* eliminar targeta */
+  const trashButton = element.querySelector(".element__trash");
 
-  element
-    .querySelector(".element__trash")
-    .addEventListener("click", function (evt) {
-      const item = evt.target.parentElement;
-      elements.removeChild(item);
-    });
+  trashButton.addEventListener("click", function (evt) {
+    const item = evt.target.parentElement;
+    elements.removeChild(item);
+  });
 
-  /* abrir img */
+  /* abrir img grande */
 
-  function imgBig() {
+  const imgButton = element.querySelector(".element__image");
+  const imgOpen = document.querySelector(".img_open");
+  const imgOpensrc = imgOpen.querySelector(".img_open__img");
+  const imgOpenText = imgOpen.querySelector(".img_open__text");
+
+  imgButton.addEventListener("click", () => {
+    imgOpensrc.src = imageValue;
+    imgOpensrc.alt = placeValue;
+    imgOpenText.textContent = placeValue;
     imgOpen.setAttribute("style", "display: grid;");
-  }
-  element
-    .querySelector(".element__image")
-    .addEventListener("click", function (evt) {
-      imgBig();
-      const textImg = document.querySelector(".img_open__text");
-      textImg.textContent = placeValue;
+  });
 
-      const srcImg = document.querySelector(".img_open__img");
-      srcImg.src = imageValue;
-    });
+  /* cerrar img grande */
+
+  const imgX = document.querySelector(".img_open__x");
+
+  imgX.addEventListener("click", () => {
+    imgOpen.removeAttribute("style", "display: grid;");
+  });
+
+  /* aparece las targetas al principio */
 
   elements.prepend(element);
 }
 
-saveButtonPlaces.addEventListener("click", function () {
-  const namePlace = document.querySelector(".formPlaces__label_name");
-  const imagePlace = document.querySelector(".formPlaces__label_ocupation");
+const saveButtonPlaces = document.querySelector(".formPlaces__submit");
+const namePlace = document.querySelector(".formPlaces__label_name");
+const imagePlace = document.querySelector(".formPlaces__label_ocupation");
 
+saveButtonPlaces.addEventListener("click", function () {
   if (namePlace.value !== "" && imagePlace.value !== "") {
     addPlace(namePlace.value, imagePlace.value);
-
     imagePlace.value = "";
     namePlace.value = "";
     cerrarVentanaPlaces();
@@ -214,13 +177,3 @@ saveButtonPlaces.addEventListener("click", function () {
 });
 
 ////////////////////////////////////////////////////////////
-
-/* mostrar img flotante */
-const imgOpen = document.querySelector(".img_open");
-const imgButton = document.querySelector(".element__image");
-const imgX = document.querySelector(".img_open__x");
-
-function CerrarImg() {
-  imgOpen.removeAttribute("style", "display: grid;");
-}
-imgX.addEventListener("click", CerrarImg);

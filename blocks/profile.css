@@ -54,6 +54,7 @@
 
 .profile__info_edit:hover {
   opacity: 0.5;
+  scale: 1.2;
 }
 .profile__info_ocupation {
   margin-top: 16px;
@@ -82,6 +83,7 @@
 }
 .profile__add-button:hover {
   opacity: 0.5;
+  scale: 1.1;
 }
 .profile__add-button_image {
   width: 22px;

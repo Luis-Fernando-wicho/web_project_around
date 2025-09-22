@@ -42,13 +42,12 @@
   position: absolute;
 }
 
-.element__trash2 {
-  background-color: rgb(255, 0, 0);
-  scale: 1.5;
-}
 .element__trash:hover {
   opacity: 0.5;
   scale: 1.2;
+  animation-name: like-heard;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
 }
 
 .element__white {
@@ -86,7 +85,7 @@
 
 .element__white_button:hover {
   opacity: 0.5;
-  scale: 1.5;
+  scale: 1.1;
 }
 
 .element__white_button-active {
@@ -99,9 +98,13 @@
   height: 19px;
   width: 21px;
 
-  scale: 1.5;
+  scale: 1.3;
   display: flex;
   align-self: center;
+  position: relative;
+  animation-name: like-heard;
+  animation-duration: 0.3s;
+  animation-iteration-count: 2;
 }
 
 /* chica */
@@ -129,5 +132,16 @@
     opacity: 1;
     translate: 0 0; /* controla movimiento final */
     scale: 1; /* controla la escala */
+  }
+}
+
+@keyframes like-heard {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    scale: 1.3;
+    opacity: 1;
   }
 }
