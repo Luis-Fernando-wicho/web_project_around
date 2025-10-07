@@ -112,7 +112,7 @@ function addPlace(placeValue, imageValue) {
   /* abrir img grande */
 
   const imgButton = element.querySelector(".element__image");
-  const imgOpen = document.querySelector(".img_open");
+  const imgOpen = document.querySelector("#myDialogImg");
   const imgOpensrc = imgOpen.querySelector(".img_open__img");
   const imgOpenText = imgOpen.querySelector(".img_open__text");
 
@@ -120,15 +120,7 @@ function addPlace(placeValue, imageValue) {
     imgOpensrc.src = imageValue;
     imgOpensrc.alt = placeValue;
     imgOpenText.textContent = placeValue;
-    imgOpen.setAttribute("style", "display: grid;");
-  });
-
-  /* cerrar img grande */
-
-  const imgX = document.querySelector(".img_open__x");
-
-  imgX.addEventListener("click", () => {
-    imgOpen.removeAttribute("style", "display: grid;");
+    imgOpen.showModal();
   });
 
   /* aparece las targetas al principio */
