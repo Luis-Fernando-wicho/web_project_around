@@ -66,54 +66,64 @@
       <!-- popup informacion de perfil  -->
 
       <dialog id="myDialogProfile" closedby="any" class="popup__profile">
-        <h2 class="popup__profile popup__profile_title">Editar perfil</h2>
-        <form method="dialog" class="form">
-          <label class="form__label" for="nombre">
+        <form method="dialog" class="formProfile">
+          <h2 class="formProfile formProfile_title">Editar perfil</h2>
+          <label class="formProfile__label" for="nombre">
             <input
-              class="form__label form__label_name"
+              class="formProfile__label formProfile__label_name"
               type="text"
               placeholder="Nombre"
               id="nombre"
               required
             />
           </label>
-          <label class="form__label" for="nombre">
+          <label class="formProfile__label" for="nombre">
             <input
-              class="form__label form__label_ocupation"
+              class="formProfile__label formProfile__label_ocupation"
               type="text"
               placeholder="Ocupacion"
               id="nombre"
               required
             />
           </label>
-          <button id="SaveButton" class="formProfile__submit">Guardar</button>
+          <button
+            id="SaveButton"
+            class="formProfile__submit formProfile__submit_disable"
+          >
+            Guardar
+          </button>
         </form>
       </dialog>
 
       <!-- popup places -->
 
       <dialog id="myDialogPlaces" closedby="any" class="popup__places">
-        <h2 class="popup__places popup__places_title">Nuevo lugar</h2>
-        <form method="dialog" class="form">
-          <label class="form__label" for="nombre">
+        <form method="dialog" class="formPlaces">
+          <h2 class="formPlaces formPlaces_title">Nuevo lugar</h2>
+          <label class="formPlaces__label" for="nombre">
             <input
-              class="form__label formPlaces__label_name"
+              class="formPlaces__label formPlaces__label_name"
+              type="text"
+              placeholder="Nombre del lugar"
+              id="nombre"
+              required
+            />
+          </label>
+          <label class="formPlaces__label" for="nombre">
+            <input
+              class="formPlaces__label formPlaces__label_URL"
               type="text"
               placeholder="URL"
               id="nombre"
               required
             />
           </label>
-          <label class="form__label" for="nombre">
-            <input
-              class="form__label formPlaces__label_ocupation"
-              type="text"
-              placeholder="Nombre"
-              id="nombre"
-              required
-            />
-          </label>
-          <button id="SaveButton" class="formPlaces__submit">Guardar</button>
+          <button
+            id="SaveButton"
+            class="formPlaces__submit formPlaces__submit_disable"
+          >
+            Guardar
+          </button>
         </form>
       </dialog>
 

@@ -12,43 +12,6 @@
   backdrop-filter: blur(10px);
 }
 
-.popup__profile_title,
-.popup__places_title {
-  margin: 0%;
-  padding: 0%;
-  width: 100%;
-  height: 10%;
-  color: black;
-  font-size: clamp(30px, 3vw, 40px);
-  margin-bottom: 58px;
-}
-
-.form {
-  margin: 0%;
-  padding: 0%;
-}
-
-.form__label {
-  margin: 0%;
-  padding: 0%;
-  width: 100%;
-  margin-bottom: 36px;
-}
-
-.form__label_name,
-.form__label_ocupation {
-  height: 26px;
-  padding-bottom: 10px;
-  border: 0px 0px 5px solid;
-  border-color: #000000;
-}
-
-.form__submit {
-  margin: 0%;
-  padding: 0%;
-  width: 100%;
-  height: 70px;
-}
 /* chica */
 
 @media screen and (min-width: 320px) and (max-width: 768px) {

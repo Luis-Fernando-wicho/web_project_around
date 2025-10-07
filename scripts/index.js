@@ -138,14 +138,14 @@ function addPlace(placeValue, imageValue) {
 
 const saveButtonPlaces = document.querySelector(".formPlaces__submit");
 const namePlace = document.querySelector(".formPlaces__label_name");
-const imagePlace = document.querySelector(".formPlaces__label_ocupation");
+const imagePlace = document.querySelector(".formPlaces__label_URL");
 
 saveButtonPlaces.addEventListener("click", function () {
   if (namePlace.value !== "" && imagePlace.value !== "") {
     addPlace(namePlace.value, imagePlace.value);
     imagePlace.value = "";
     namePlace.value = "";
-    cerrarVentanaPlaces();
+    dialogPlaces.close();
   }
 });
 
