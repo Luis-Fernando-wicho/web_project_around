@@ -1,59 +1,32 @@
-/* boton para editar */
-const VentanaFlotante = document.querySelector(".popup");
-const VentanaFlotantePlaces = document.querySelector(".popupPlaces");
+/* Oppen dialogs */
 
-const InfoEdit = document.querySelector(".profile__info_edit");
-const PlacesEdit = document.querySelector(".profile__add-button");
-const ButtonX = document.querySelector(".popup__x");
-const buttonXPlaces = document.querySelector(".popupPlaces__x");
+const dialogProfile = document.querySelector("#myDialogProfile");
+const openDialogProfile = document.querySelector(".profile__info_edit");
 
-let NameProfile = document.querySelector(".profile__info_name");
-let OcupationProfile = document.querySelector(".profile__info_ocupation");
+const dialogPlaces = document.querySelector("#myDialogPlaces");
+const openDialogPlaces = document.querySelector(".profile__add-button");
+
+openDialogProfile.addEventListener("click", () => {
+  dialogProfile.showModal();
+});
+
+openDialogPlaces.addEventListener("click", () => {
+  dialogPlaces.showModal();
+});
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+/* CAMBIAR NOMBRE */
+
+const NameProfile = document.querySelector(".profile__info_name");
+const OcupationProfile = document.querySelector(".profile__info_ocupation");
 
 const NewNameProfile = document.querySelector(".form__label_name");
 const NewOcupationProfile = document.querySelector(".form__label_ocupation");
 
-let formForm = document.querySelector(".form");
+const formForm = document.querySelector(".form__submit");
 
-const SaveButton = document.querySelector(".form__submit");
-
-const buttontrash = document.querySelectorAll(".element__trash");
-
-////////////////////////////////////////////////////////////////////
-/* mostrar ventana flotante */
-function ProfileEdit() {
-  VentanaFlotante.setAttribute("style", "display: grid;");
-}
-InfoEdit.addEventListener("click", ProfileEdit);
-
-/* mostrar ventana flotante places*/
-
-function placeEdit() {
-  VentanaFlotantePlaces.setAttribute("style", "display: grid;");
-}
-PlacesEdit.addEventListener("click", placeEdit);
-
-////////////////////////////////////////////////////////////////////////////
-
-/* cerrar ventana flotante */
-
-function CerrarVentana() {
-  VentanaFlotante.removeAttribute("style", "display: grid;");
-}
-ButtonX.addEventListener("click", CerrarVentana);
-
-/* cerrar ventana flotante Places */
-
-function cerrarVentanaPlaces() {
-  VentanaFlotantePlaces.removeAttribute("style", "display: grid;");
-}
-buttonXPlaces.addEventListener("click", cerrarVentanaPlaces);
-
-///////////////////////////////////////////////////////////////////////////////////
-
-/* CAMBIAR NOMBRE */
-
-function CambiarNombre(event) /* no sube datos */ {
+function CambiarNombre(event) {
   event.preventDefault();
 
   if (NewNameProfile.value !== "" && NewOcupationProfile.value !== "") {
@@ -62,52 +35,19 @@ function CambiarNombre(event) /* no sube datos */ {
 
     NewNameProfile.value = "";
     NewOcupationProfile.value = "";
-    CerrarVentana();
+    dialogProfile.close();
   }
 }
-formForm.addEventListener("submit", CambiarNombre);
+formForm.addEventListener("click", CambiarNombre);
 
 ///////////////////////////////////////////////////////////////////////////////////////
-
-/* agregar 6 targetas */
-
-const elements = document.querySelector(".elements");
-const template = document.querySelector("#placetemplate").content;
-
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
-  },
-];
-
-initialCards.forEach((el) => {
-  addPlace(el.name, el.link);
-});
 
 //////////////////////////////////////////////////////////////////////////////////////
 
 /* agregar targetas */
+const SaveButton = document.querySelector(".form__submit");
+
+const buttontrash = document.querySelectorAll(".element__trash");
 
 function addPlace(placeValue, imageValue) {
   const element = template.querySelector(".element").cloneNode(true);

@@ -65,76 +65,57 @@
 
       <!-- popup informacion de perfil  -->
 
-      <div class="popup">
-        <button class="popup__x"></button>
-        <div class="popup__container">
-          <h2 class="popup__container popup__container_title">Editar perfil</h2>
-          <form class="form" action="/procesar-formulario" method="POST">
-            <label class="form__label" for="nombre">
-              <input
-                class="form__label form__label_name"
-                type="text"
-                placeholder="Nombre"
-                id="nombre"
-                required
-              />
-            </label>
-            <label class="form__label" for="nombre">
-              <input
-                class="form__label form__label_ocupation"
-                type="text"
-                placeholder="Ocupacion"
-                id="nombre"
-                required
-              />
-            </label>
-            <button
-              id="SaveButton"
-              type="submit"
-              class="form__submit form__submit_disable"
-            >
-              Guardar
-            </button>
-          </form>
-        </div>
-      </div>
+      <dialog id="myDialogProfile" closedby="any" class="popup__profile">
+        <h2 class="popup__profile popup__profile_title">Editar perfil</h2>
+        <form method="dialog" class="form">
+          <label class="form__label" for="nombre">
+            <input
+              class="form__label form__label_name"
+              type="text"
+              placeholder="Nombre"
+              id="nombre"
+              required
+            />
+          </label>
+          <label class="form__label" for="nombre">
+            <input
+              class="form__label form__label_ocupation"
+              type="text"
+              placeholder="Ocupacion"
+              id="nombre"
+              required
+            />
+          </label>
+          <button id="SaveButton" class="form__submit">Guardar</button>
+        </form>
+      </dialog>
 
       <!-- popup places -->
-      <div class="popupPlaces">
-        <button class="popupPlaces__x"></button>
-        <div class="popupPlaces__container">
-          <h2 class="popupPlaces__container popupPlaces__container_title">
-            Nuevo Lugar
-          </h2>
-          <form class="formPlaces">
-            <label class="formPlaces__label" for="nombre">
-              <input
-                class="formPlaces__label formPlaces__label_name"
-                type="text"
-                placeholder="Nombre"
-                id="nombre"
-                required
-              />
-            </label>
-            <label class="formPlaces__label" for="nombre">
-              <input
-                class="formPlaces__label formPlaces__label_ocupation"
-                type="text"
-                placeholder="Ocupacion"
-                id="nombre"
-                required
-              />
-            </label>
-            <button
-              id="SaveButtonPlaces"
-              type="submit"
-              class="formPlaces__submit"
-            >
-              Guardar
-            </button>
-          </form>
-        </div>
-      </div>
+
+      <dialog id="myDialogPlaces" closedby="any" class="popup__places">
+        <h2 class="popup__places popup__places_title">Nuevo lugar</h2>
+        <form method="dialog" class="form">
+          <label class="form__label" for="nombre">
+            <input
+              class="form__label form__label_name"
+              type="text"
+              placeholder="URL"
+              id="nombre"
+              required
+            />
+          </label>
+          <label class="form__label" for="nombre">
+            <input
+              class="form__label form__label_ocupation"
+              type="text"
+              placeholder="Nombre"
+              id="nombre"
+              required
+            />
+          </label>
+          <button id="SaveButton" class="form__submit">Guardar</button>
+        </form>
+      </dialog>
 
       <!-- mostrar imagen grande ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
