@@ -24,7 +24,7 @@ const OcupationProfile = document.querySelector(".profile__info_ocupation");
 const NewNameProfile = document.querySelector(".form__label_name");
 const NewOcupationProfile = document.querySelector(".form__label_ocupation");
 
-const formForm = document.querySelector(".form__submit");
+const formForm = document.querySelector(".formProfile__submit");
 
 function CambiarNombre(event) {
   event.preventDefault();
