@@ -120,7 +120,10 @@ function addPlace(placeValue, imageValue) {
     imgOpensrc.src = imageValue;
     imgOpensrc.alt = placeValue;
     imgOpenText.textContent = placeValue;
+
     imgOpen.showModal();
+
+    imgOpen.classList.add("img_open-active");
   });
 
   /* aparece las targetas al principio */
