@@ -65,30 +65,37 @@
 
       <!-- popup informacion de perfil  -->
 
-      <dialog id="myDialogProfile" closedby="any" class="popup__profile">
-        <form method="dialog" class="formProfile">
-          <h2 class="formProfile formProfile_title">Editar perfil</h2>
-          <label class="formProfile__label" for="nombre">
+      <dialog id="myDialog" closedby="any" class="popup popup__profile">
+        <form method="dialog" class="popup__form" novalidate>
+          <h2 class="popup__form_title">Editar perfil</h2>
+          <label class="popup__form__label">
             <input
-              class="formProfile__label formProfile__label_name"
+              class="popup__input popup__input_name"
               type="text"
+              name="name"
               placeholder="Nombre"
-              id="nombre"
               required
+              minlength="2"
+              maxlength="40"
             />
+            <span id="error-name" class="popup__error"></span>
           </label>
-          <label class="formProfile__label" for="nombre">
+          <label class="popup__form__label">
             <input
-              class="formProfile__label formProfile__label_ocupation"
+              class="popup__input popup__input_ocupation"
               type="text"
-              placeholder="Ocupacion"
-              id="nombre"
+              name="about"
+              placeholder="Acerca de mi"
+              minlength="2"
+              maxlength="200"
               required
             />
+            <span id="error-about" class="popup__error"></span>
           </label>
           <button
             id="SaveButton"
-            class="formProfile__submit formProfile__submit_disable"
+            class="popup__button popup__button_profile"
+            disabled
           >
             Guardar
           </button>
@@ -97,30 +104,36 @@
 
       <!-- popup places -->
 
-      <dialog id="myDialogPlaces" closedby="any" class="popup__places">
-        <form method="dialog" class="formPlaces">
-          <h2 class="formPlaces formPlaces_title">Nuevo lugar</h2>
-          <label class="formPlaces__label" for="nombre">
+      <dialog id="myDialog" closedby="any" class="popup popup__places">
+        <form method="dialog" class="popup__form" novalidate>
+          <h2 class="popup__form_title">Nuevo lugar</h2>
+          <label class="popup__form__label">
             <input
-              class="formPlaces__label formPlaces__label_name"
+              class="popup__input popup__input_namePlace"
               type="text"
-              placeholder="Nombre del lugar"
-              id="nombre"
+              name="title"
+              placeholder="Título"
               required
+              minlength="2"
+              maxlength="30"
             />
+            <span id="error-title" class="popup__error"></span>
           </label>
-          <label class="formPlaces__label" for="nombre">
+          <label class="popup__form__label">
             <input
-              class="formPlaces__label formPlaces__label_URL"
-              type="text"
-              placeholder="URL"
-              id="nombre"
+              class="popup__input popup__input_URL"
+              type="url"
+              name="link"
+              placeholder="Enlace de la imagen"
+              class="popup__input popup__input-link"
               required
             />
+            <span id="error-link" class="popup__error"></span>
           </label>
           <button
             id="SaveButton"
-            class="formPlaces__submit formPlaces__submit_disable"
+            class="popup__button popup__button_places"
+            disabled
           >
             Guardar
           </button>
@@ -150,6 +163,6 @@
       </li>
     </template>
 
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/index.js" type="module"></script>
   </body>
 </html>

@@ -1,9 +1,10 @@
-/* Oppen dialogs */
+import { enableValidation } from "./validate.js";
 
-const dialogProfile = document.querySelector("#myDialogProfile");
+/* Oppen dialogs */
+const dialogProfile = document.querySelector(".popup__profile");
 const openDialogProfile = document.querySelector(".profile__info_edit");
 
-const dialogPlaces = document.querySelector("#myDialogPlaces");
+const dialogPlaces = document.querySelector(".popup__places");
 const openDialogPlaces = document.querySelector(".profile__add-button");
 
 openDialogProfile.addEventListener("click", () => {
@@ -21,10 +22,10 @@ openDialogPlaces.addEventListener("click", () => {
 const NameProfile = document.querySelector(".profile__info_name");
 const OcupationProfile = document.querySelector(".profile__info_ocupation");
 
-const NewNameProfile = document.querySelector(".form__label_name");
-const NewOcupationProfile = document.querySelector(".form__label_ocupation");
+const NewNameProfile = document.querySelector(".popup__input_name");
+const NewOcupationProfile = document.querySelector(".popup__input_ocupation");
 
-const formForm = document.querySelector(".formProfile__submit");
+const formForm = document.querySelector(".popup__button_profile");
 
 function CambiarNombre(event) {
   event.preventDefault();
@@ -94,21 +95,6 @@ function addPlace(placeValue, imageValue) {
 
   img.setAttribute("src", imageValue);
 
-  /* boton like */
-  const likeButton = element.querySelector(".element__white_button");
-
-  likeButton.addEventListener("click", function (evt) {
-    evt.target.classList.toggle("element__white_button-active");
-  });
-
-  /* eliminar targeta */
-  const trashButton = element.querySelector(".element__trash");
-
-  trashButton.addEventListener("click", function (evt) {
-    const item = evt.target.parentElement;
-    elements.removeChild(item);
-  });
-
   /* abrir img grande */
 
   const imgButton = element.querySelector(".element__image");
@@ -131,9 +117,9 @@ function addPlace(placeValue, imageValue) {
   elements.prepend(element);
 }
 
-const saveButtonPlaces = document.querySelector(".formPlaces__submit");
-const namePlace = document.querySelector(".formPlaces__label_name");
-const imagePlace = document.querySelector(".formPlaces__label_URL");
+const saveButtonPlaces = document.querySelector(".popup__button_places");
+const namePlace = document.querySelector(".popup__input_namePlace");
+const imagePlace = document.querySelector(".popup__input_URL");
 
 saveButtonPlaces.addEventListener("click", function () {
   if (namePlace.value !== "" && imagePlace.value !== "") {
@@ -144,4 +130,35 @@ saveButtonPlaces.addEventListener("click", function () {
   }
 });
 
+/* burbujeo like button */
+/* evt.target nos dice donde damos click dnetro de elements
+si donde damos click tenemos la clase element__white_button
+ponemos o quitamos la clase activada */
+
+elements.addEventListener("click", function (evt) {
+  const heardButton = evt.target;
+  if (heardButton.classList.contains("element__white_button")) {
+    heardButton.classList.toggle("element__white_button-active");
+  }
+});
+
+/* eliminar targeta */
+
+elements.addEventListener("click", function (evt) {
+  const trashButton = evt.target;
+  if (trashButton.classList.contains("element__trash")) {
+    const item = evt.target.parentElement;
+    elements.removeChild(item);
+  }
+});
+
 ////////////////////////////////////////////////////////////
+
+enableValidation({
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+});

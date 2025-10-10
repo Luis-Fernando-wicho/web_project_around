@@ -1,9 +1,10 @@
 .img_open {
   border: none;
   background-color: transparent;
-  max-width: 67vw;
+  max-width: 40vw;
   padding: 11px;
   scale: 1;
+  outline: none;
 }
 
 .img_open-active {

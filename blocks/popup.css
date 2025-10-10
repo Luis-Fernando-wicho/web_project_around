@@ -5,11 +5,72 @@
   height: 50%;
   border: none;
   border-radius: 21px;
-}
+  &::backdrop {
+    backdrop-filter: blur(10px);
+  }
 
-.popup__profile::backdrop,
-.popup__places::backdrop {
-  backdrop-filter: blur(10px);
+  .popup__form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .popup__form_title {
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+    height: 10%;
+    color: black;
+    font-size: clamp(30px, 3vw, 40px);
+  }
+
+  .popup__form__label {
+    font-size: 18px;
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+    border-top: 0px;
+    border-right: 5px;
+    border-left: 0px;
+  }
+
+  .popup__input {
+    font-size: 18px;
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+    border-top: 0px;
+    border-right: 5px;
+    border-left: 0px;
+    height: 26px;
+    padding-bottom: 10px;
+  }
+
+  .popup__button {
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    &:hover {
+      opacity: 0.5;
+    }
+    &.popup__button_disabled {
+      background-color: red;
+    }
+  }
+
+  .popup__input_type_error {
+    border-color: red;
+  }
+
+  .popup__error_visible {
+    color: red;
+  }
 }
 
 /* chica */
@@ -22,15 +83,5 @@
     height: 50%;
     border: none;
     border-radius: 21px;
-  }
-
-  .popup__profile_title,
-  .popup__places_title {
-    margin: 0%;
-    padding: 0%;
-    width: 100%;
-    height: 10%;
-    color: black;
-    margin-bottom: 48px;
   }
 }
