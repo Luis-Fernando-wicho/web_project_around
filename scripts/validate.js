@@ -30,8 +30,8 @@ function isFormValid(inputList) {
   return inputList.some((input) => !input.validity.valid);
 }
 // TODO: function that handle button state(enable or disabled)
-function toggleButtonState(inputList, config) {
-  const buttonElement = document.querySelector(config.submitButtonSelector);
+function toggleButtonState(form, inputList, config) {
+  const buttonElement = form.querySelector(config.submitButtonSelector);
   if (isFormValid(inputList)) {
     buttonElement.disabled = true;
     buttonElement.classList.add(config.inactiveButtonClass);
@@ -46,12 +46,12 @@ function toggleButtonState(inputList, config) {
 
 function setEventListeners(form, config) {
   const inputList = Array.from(form.querySelectorAll(config.inputSelector));
-  toggleButtonState(inputList, config);
+  toggleButtonState(form, inputList, config);
 
   inputList.forEach((input) => {
     input.addEventListener("input", () => {
       checkInputValidity(input, config);
-      toggleButtonState(inputList, config);
+      toggleButtonState(form, inputList, config);
     });
   });
 }
