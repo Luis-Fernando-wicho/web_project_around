@@ -60,7 +60,15 @@
       opacity: 0.5;
     }
     &.popup__button_disabled {
-      background-color: red;
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
+    }
+    &.popup__button:disabled {
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
+    }
+    &:hover:disabled {
+      opacity: 1;
     }
   }
 

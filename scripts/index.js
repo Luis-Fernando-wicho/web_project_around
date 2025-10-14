@@ -25,7 +25,7 @@ const OcupationProfile = document.querySelector(".profile__info_ocupation");
 const NewNameProfile = document.querySelector(".popup__input_name");
 const NewOcupationProfile = document.querySelector(".popup__input_ocupation");
 
-const formForm = document.querySelector(".popup__button_profile");
+const saveButtonProfile = document.querySelector(".popup__button_profile");
 
 function CambiarNombre(event) {
   event.preventDefault();
@@ -36,10 +36,12 @@ function CambiarNombre(event) {
 
     NewNameProfile.value = "";
     NewOcupationProfile.value = "";
+    saveButtonProfile.classList.add("popup__button_disabled");
+    saveButtonProfile.disabled = true;
     dialogProfile.close();
   }
 }
-formForm.addEventListener("click", CambiarNombre);
+saveButtonProfile.addEventListener("click", CambiarNombre);
 
 ////////////////////////////////////////////////////////////////////////////
 
@@ -126,6 +128,8 @@ saveButtonPlaces.addEventListener("click", function () {
     addPlace(namePlace.value, imagePlace.value);
     imagePlace.value = "";
     namePlace.value = "";
+    saveButtonPlaces.classList.add("popup__button_disabled");
+    saveButtonPlaces.disabled = true;
     dialogPlaces.close();
   }
 });
