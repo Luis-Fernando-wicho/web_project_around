@@ -7,7 +7,7 @@ import {
   dialogPlaces,
 } from "../utils.js";
 
-/* import { Card } from "./Card.js"; */
+import { Card } from "./Card.js";
 /////////////////////////////////////////////////////////////////////////////////////
 
 /* CAMBIAR NOMBRE */
@@ -41,7 +41,6 @@ saveButtonProfile.addEventListener("click", CambiarNombre);
 /* agregar 6 targetas */
 
 const elements = document.querySelector(".elements");
-const template = document.querySelector("#placetemplate").content;
 
 const initialCards = [
   {
@@ -79,21 +78,8 @@ initialCards.forEach((el) => {
 /* agregar targetas */
 
 function addPlace(placeValue, imageValue) {
-  const element = template.querySelector(".element").cloneNode(true);
-
-  const img = element.querySelector(".element__image");
-  const imgText = element.querySelector(".element__white_title");
-
-  /* agregar valores a targetas */
-
-  imgText.textContent = placeValue;
-  img.setAttribute("alt", placeValue);
-
-  img.setAttribute("src", imageValue);
-
-  /* aparece las targetas al principio */
-
-  elements.prepend(element);
+  const placeElement = new Card(placeValue, imageValue).addPlaceElement();
+  elements.prepend(placeElement);
 }
 
 const saveButtonPlaces = document.querySelector(".popup__button_places");

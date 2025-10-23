@@ -18,8 +18,8 @@ export class Card {
   }
 
   //agregamos el lugar
-  addPlace() {
-    this.place = cloneTemplate();
+  addPlaceElement() {
+    this.place = this.cloneTemplate();
     this.place.querySelector(".element__image").src = this.imageValue;
     this.place.querySelector(".element__image").alt = this.placeValue;
     this.place.querySelector(".element__white_title").textContent =
@@ -30,7 +30,3 @@ export class Card {
 
   //metodo de eventos (esto se hace con burbujeo)
 }
-
-// 2. instanciar clase
-
-// 3. utilizar clase
