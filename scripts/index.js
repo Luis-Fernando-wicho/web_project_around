@@ -1,20 +1,13 @@
 import { enableValidation } from "./validate.js";
 
-/* Oppen dialogs */
-const dialogProfile = document.querySelector(".popup__profile");
-const openDialogProfile = document.querySelector(".profile__info_edit");
+import {
+  openDialogProfile,
+  openDialogPlaces,
+  dialogProfile,
+  dialogPlaces,
+} from "../utils.js";
 
-const dialogPlaces = document.querySelector(".popup__places");
-const openDialogPlaces = document.querySelector(".profile__add-button");
-
-openDialogProfile.addEventListener("click", () => {
-  dialogProfile.showModal();
-});
-
-openDialogPlaces.addEventListener("click", () => {
-  dialogPlaces.showModal();
-});
-
+/* import { Card } from "./Card.js"; */
 /////////////////////////////////////////////////////////////////////////////////////
 
 /* CAMBIAR NOMBRE */
@@ -87,6 +80,7 @@ initialCards.forEach((el) => {
 
 function addPlace(placeValue, imageValue) {
   const element = template.querySelector(".element").cloneNode(true);
+
   const img = element.querySelector(".element__image");
   const imgText = element.querySelector(".element__white_title");
 
@@ -96,23 +90,6 @@ function addPlace(placeValue, imageValue) {
   img.setAttribute("alt", placeValue);
 
   img.setAttribute("src", imageValue);
-
-  /* abrir img grande */
-
-  const imgButton = element.querySelector(".element__image");
-  const imgOpen = document.querySelector("#myDialogImg");
-  const imgOpensrc = imgOpen.querySelector(".img_open__img");
-  const imgOpenText = imgOpen.querySelector(".img_open__text");
-
-  imgButton.addEventListener("click", () => {
-    imgOpensrc.src = imageValue;
-    imgOpensrc.alt = placeValue;
-    imgOpenText.textContent = placeValue;
-
-    imgOpen.showModal();
-
-    imgOpen.classList.add("img_open-active");
-  });
 
   /* aparece las targetas al principio */
 
@@ -134,10 +111,7 @@ saveButtonPlaces.addEventListener("click", function () {
   }
 });
 
-/* burbujeo like button */
-/* evt.target nos dice donde damos click dnetro de elements
-si donde damos click tenemos la clase element__white_button
-ponemos o quitamos la clase activada */
+/* burbujeo like button bbo */
 
 elements.addEventListener("click", function (evt) {
   const heardButton = evt.target;
@@ -146,13 +120,32 @@ elements.addEventListener("click", function (evt) {
   }
 });
 
-/* eliminar targeta */
+/* burbujeo  eliminar targeta */
 
 elements.addEventListener("click", function (evt) {
   const trashButton = evt.target;
   if (trashButton.classList.contains("element__trash")) {
     const item = evt.target.parentElement;
     elements.removeChild(item);
+  }
+});
+
+/* burbujeo  abrir img */
+
+elements.addEventListener("click", function (evt) {
+  const openimage = evt.target;
+  const imgOpen = document.querySelector("#myDialogImg");
+  const imgOpensrc = imgOpen.querySelector(".img_open__img");
+  const imgOpenText = imgOpen.querySelector(".img_open__text");
+
+  if (openimage.classList.contains("element__image")) {
+    imgOpensrc.src = openimage.src;
+    imgOpensrc.alt = openimage.alt;
+    imgOpenText.textContent = openimage.alt;
+
+    imgOpen.showModal();
+
+    imgOpen.classList.add("img_open-active");
   }
 });
 
