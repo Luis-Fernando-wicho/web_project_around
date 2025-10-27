@@ -5,7 +5,7 @@ import {
   openDialogPlaces,
   dialogProfile,
   dialogPlaces,
-} from "../utils.js";
+} from "./utils.js";
 
 import { Card } from "./Card.js";
 /////////////////////////////////////////////////////////////////////////////////////
