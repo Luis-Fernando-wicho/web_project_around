@@ -1,40 +1,47 @@
-import { FormValidator } from "./FormValidator.js";
+import FormValidator from "../components/FormValidator.js";
 
-import {
-  openDialogProfile,
-  openDialogPlaces,
-  dialogProfile,
-  dialogPlaces,
-} from "./utils.js";
+import Card from "../components/Card.js";
 
-import { Card } from "./Card.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+
+import PopupWithImage from "../components/PopupWithImage.js";
+
+import Section from "../components/Section.js";
+
+import UserInfo from "../components/UserInfo.js";
+
 /////////////////////////////////////////////////////////////////////////////////////
 
+const userInfo = new UserInfo(
+  ".profile__info_name",
+  ".profile__info_ocupation"
+);
+
+const popupProfile = new PopupWithForm(
+  ".popup__profile",
+  userInfo.setUserInfo.bind(userInfo)
+);
+popupProfile.setEventListeners();
+
+const popupPlace = new PopupWithForm(".popup__places");
+popupPlace.setEventListeners();
+
+/* Oppen dialogs */
+
+const openDialogProfile = document.querySelector(".profile__info_edit");
+
+const openDialogPlaces = document.querySelector(".profile__add-button");
+
+openDialogProfile.addEventListener("click", () => {
+  popupProfile.open();
+});
+
+openDialogPlaces.addEventListener("click", () => {
+  console.log("click abrir agregar lugar");
+  popupPlace.open();
+});
+
 /* CAMBIAR NOMBRE */
-
-const NameProfile = document.querySelector(".profile__info_name");
-const OcupationProfile = document.querySelector(".profile__info_ocupation");
-
-const NewNameProfile = document.querySelector(".popup__input_name");
-const NewOcupationProfile = document.querySelector(".popup__input_ocupation");
-
-const saveButtonProfile = document.querySelector(".popup__button_profile");
-
-function CambiarNombre(event) {
-  event.preventDefault();
-
-  if (NewNameProfile.value !== "" && NewOcupationProfile.value !== "") {
-    NameProfile.textContent = NewNameProfile.value;
-    OcupationProfile.textContent = NewOcupationProfile.value;
-
-    NewNameProfile.value = "";
-    NewOcupationProfile.value = "";
-    saveButtonProfile.classList.add("popup__button_disabled");
-    saveButtonProfile.disabled = true;
-    dialogProfile.close();
-  }
-}
-saveButtonProfile.addEventListener("click", CambiarNombre);
 
 ////////////////////////////////////////////////////////////////////////////
 
@@ -69,35 +76,26 @@ const initialCards = [
   },
 ];
 
-initialCards.forEach((el) => {
-  addPlace(el.name, el.link);
-});
-
 //////////////////////////////////////////////////////////////////////////////////////
 
 /* agregar targetas */
 
-function addPlace(placeValue, imageValue) {
+export function addPlace(placeValue, imageValue) {
   const placeElement = new Card(placeValue, imageValue).addPlaceElement();
+
   elements.prepend(placeElement);
 }
 
-const saveButtonPlaces = document.querySelector(".popup__button_places");
-const namePlace = document.querySelector(".popup__input_namePlace");
-const imagePlace = document.querySelector(".popup__input_URL");
+const section = new Section(
+  initialCards,
 
-saveButtonPlaces.addEventListener("click", function () {
-  if (namePlace.value !== "" && imagePlace.value !== "") {
-    addPlace(namePlace.value, imagePlace.value);
-    imagePlace.value = "";
-    namePlace.value = "";
-    saveButtonPlaces.classList.add("popup__button_disabled");
-    saveButtonPlaces.disabled = true;
-    dialogPlaces.close();
+  (item) => {
+    addPlace(item.name, item.link);
   }
-});
+);
+section.renderItems();
 
-/* burbujeo like button bbo */
+/* burbujeo like button */
 
 elements.addEventListener("click", function (evt) {
   const heardButton = evt.target;
@@ -117,23 +115,8 @@ elements.addEventListener("click", function (evt) {
 });
 
 /* burbujeo  abrir img */
-
-elements.addEventListener("click", function (evt) {
-  const openimage = evt.target;
-  const imgOpen = document.querySelector("#myDialogImg");
-  const imgOpensrc = imgOpen.querySelector(".img_open__img");
-  const imgOpenText = imgOpen.querySelector(".img_open__text");
-
-  if (openimage.classList.contains("element__image")) {
-    imgOpensrc.src = openimage.src;
-    imgOpensrc.alt = openimage.alt;
-    imgOpenText.textContent = openimage.alt;
-
-    imgOpen.showModal();
-
-    imgOpen.classList.add("img_open-active");
-  }
-});
+const popupImg = new PopupWithImage(".img_open");
+popupImg.setEventListeners();
 
 ////////////////////////////////////////////////////////////
 
@@ -147,3 +130,5 @@ const config = {
 };
 const formValidator = new FormValidator(config);
 formValidator.enableValidation();
+
+///////////////////////////////////////////////

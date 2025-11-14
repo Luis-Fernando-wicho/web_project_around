@@ -1,6 +1,6 @@
 // 1. definir la clase
 
-export class Card {
+export default class Card {
   constructor(placeValue, imageValue) {
     this.placeValue = placeValue;
     this.imageValue = imageValue;

@@ -1,6 +1,6 @@
 // 1. definir la clase
 
-export class FormValidator {
+export default class FormValidator {
   constructor(config) {
     this.config = config;
 
