@@ -12,11 +12,51 @@
   align-items: center;
 }
 .profile__avatar {
+  position: relative;
   height: 120px;
   width: 120px;
   object-fit: cover;
   border-radius: 50%;
+  cursor: pointer;
+  &:hover .profile__img {
+    opacity: 0.5;
+    scale: 1.1;
+  }
 }
+
+.profile__img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+.profile__hover {
+  position: absolute;
+  opacity: 0;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+
+  transition: opacity 0.5s ease; /* Suaviza la transición de opacidad del SVG */
+  display: flex;
+  justify-content: center; /* Centra el SVG horizontalmente */
+  align-items: center; /* Centra el SVG verticalmente */
+  &:hover {
+    opacity: 1;
+  }
+}
+.profile__svg {
+  height: 50%;
+  width: 50%;
+}
+
 .profile__info {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -50,12 +90,13 @@
 
   align-self: center;
   justify-self: flex-start;
+  transition: all 0.5s ease;
+  &:hover {
+    opacity: 0.5;
+    scale: 1.2;
+  }
 }
 
-.profile__info_edit:hover {
-  opacity: 0.5;
-  scale: 1.2;
-}
 .profile__info_ocupation {
   margin-top: 16px;
   font-size: clamp(14px, 1vw, 25px);
@@ -80,11 +121,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.5s ease;
+  &:hover {
+    opacity: 0.5;
+    scale: 1.2;
+  }
 }
-.profile__add-button:hover {
-  opacity: 0.5;
-  scale: 1.1;
-}
+
 .profile__add-button_image {
   width: 22px;
   height: 22px;

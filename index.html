@@ -28,18 +28,24 @@
         <!-- informacion perfil -->
 
         <div class="profile">
-          <img class="profile__avatar" src="/images/01.jpg" alt="" />
+          <div class="profile__avatar">
+            <img class="profile__img" src="" alt="" />
+            <div class="profile__hover">
+              <img
+                class="profile__svg"
+                src="./images/lapiz.svg"
+                alt="svg de un lapiz"
+              />
+            </div>
+          </div>
+
           <div class="profile__info">
-            <h2 class="profile__info profile__info_name">
-              luis Fernando martinez santos
-            </h2>
+            <h2 class="profile__info profile__info_name"></h2>
             <button
               id="infoedit"
               class="profile__info profile__info_edit"
             ></button>
-            <h2 class="profile__info profile__info_ocupation">
-              ingeniero Mecatronico
-            </h2>
+            <h2 class="profile__info profile__info_ocupation"></h2>
           </div>
           <button class="profile__add-button">
             <img
@@ -62,6 +68,31 @@
       </footer>
 
       <!-- //////////// ventana flotantes ///////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+      <!-- popup imagen de perfil -->
+
+      <dialog id="myDialog" closedby="any" class="popup popup__avatar">
+        <form method="dialog" class="popup__form" novalidate>
+          <h2 class="popup__form_title">Cambiar foto de perfil</h2>
+          <label class="popup__form__label">
+            <input
+              class="popup__input popup__input_avatar"
+              type="url"
+              name="link"
+              placeholder="Enlace de la imagen"
+              required
+            />
+            <span id="error-title" class="popup__error"></span>
+          </label>
+          <button
+            id="SaveButton"
+            class="popup__button popup__button_places"
+            disabled
+          >
+            Guardar
+          </button>
+        </form>
+      </dialog>
 
       <!-- popup informacion de perfil  -->
 
@@ -113,9 +144,9 @@
               type="text"
               name="title"
               placeholder="Título"
-              required
               minlength="2"
               maxlength="30"
+              required
             />
             <span id="error-title" class="popup__error"></span>
           </label>
@@ -129,6 +160,21 @@
             />
             <span id="error-link" class="popup__error"></span>
           </label>
+          <button
+            id="SaveButton"
+            class="popup__button popup__button_places"
+            disabled
+          >
+            Guardar
+          </button>
+        </form>
+      </dialog>
+
+      <!-- popup ARS -->
+
+      <dialog id="myDialog" closedby="any" class="popup popup__ARS">
+        <form method="dialog" class="popup__form" novalidate>
+          <h2 class="popup__form_title">¿Estás seguro?</h2>
           <button
             id="SaveButton"
             class="popup__button popup__button_places"

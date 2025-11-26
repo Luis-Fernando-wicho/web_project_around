@@ -1,9 +1,11 @@
 // 1. definir la clase
 
 export default class Card {
-  constructor(placeValue, imageValue) {
+  constructor(placeValue, imageValue, idValue, likeValue) {
     this.placeValue = placeValue;
     this.imageValue = imageValue;
+    this.idValue = idValue;
+    this.likeValue = likeValue;
     //seleccionar el cotenido del template
     this.templatePlace = document
       .querySelector("#placetemplate")
@@ -24,6 +26,13 @@ export default class Card {
     this.place.querySelector(".element__image").alt = this.placeValue;
     this.place.querySelector(".element__white_title").textContent =
       this.placeValue;
+    this.place.id = this.idValue;
+    const likeState = this.place.querySelector(".element__white_button");
+    if (this.likeValue) {
+      likeState.classList.add("element__white_button-active");
+    } else {
+      likeState.classList.remove("element__white_button-active");
+    }
 
     return this.place;
   }

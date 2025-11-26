@@ -1,24 +1,54 @@
+import { api } from "../components/Api.js";
 export default class UserInfo {
-  constructor(nameSelector, jobSelector) {
+  constructor(nameSelector, jobSelector, avatarSelector) {
     this._nameElement = document.querySelector(nameSelector);
     this._jobElement = document.querySelector(jobSelector);
-    /* console.log(this._nameElement);
-    console.log(this._jobElement);
-    console.log(this._nameElement.textContent);
-    console.log(this._jobElement.textContent); */
+    this._avatarSelector = document.querySelector(avatarSelector);
   }
 
   getUserInfo() {
-    const name = this._nameElement.textContent;
-
-    const job = this._jobElement.textContent;
-
-    return { name, job };
+    api
+      .getInitialData()
+      .then((data) => {
+        this._nameElement.textContent = data.name;
+        this._jobElement.textContent = data.about;
+        this._avatarSelector.src = data.avatar;
+      })
+      .catch((err) => {
+        console.log(err); // registra el error en la consola
+      });
   }
 
   setUserInfo(newname, newjob) {
-    this._nameElement.textContent = newname;
+    const saveButton = this.form.querySelector(".popup__button");
+    saveButton.textContent = "guardando";
+    api
+      .setData(newname, newjob)
+      .then((data) => {
+        this._nameElement.textContent = data.name;
+        this._jobElement.textContent = data.about;
+      })
+      .catch((err) => {
+        console.log(err); // registra el error en la consola
+      })
+      .finally(() => {
+        saveButton.textContent = "Guardar";
+      });
+  }
 
-    this._jobElement.textContent = newjob;
+  setUserAvatar(url) {
+    const saveButton = this.form.querySelector(".popup__button");
+    saveButton.textContent = "guardando";
+    api
+      .setAvatar(url)
+      .then((data) => {
+        this._avatarSelector.src = data.avatar;
+      })
+      .catch((err) => {
+        console.log(err); // registra el error en la consola
+      })
+      .finally(() => {
+        saveButton.textContent = "Guardar";
+      });
   }
 }

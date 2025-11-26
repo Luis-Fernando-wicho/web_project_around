@@ -8,7 +8,6 @@ export default class Popup {
   }
 
   cerrarbajo() {
-    console.log("<------ cerrar");
     this._popup.close();
   }
 
