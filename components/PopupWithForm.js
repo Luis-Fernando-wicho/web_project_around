@@ -42,6 +42,8 @@ export default class PopupWithForm extends Popup {
       if (this.selector === ".popup__profile") {
         this.setUserInfo(inputValues.name, inputValues.about);
       } else if (this.selector === ".popup__avatar") {
+        console.log(inputValues.link);
+        console.log(this.setUserInfo);
         this.setUserInfo(inputValues.link);
       } else {
         const saveButton = this.form.querySelector(".popup__button");

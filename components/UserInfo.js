@@ -4,6 +4,7 @@ export default class UserInfo {
     this._nameElement = document.querySelector(nameSelector);
     this._jobElement = document.querySelector(jobSelector);
     this._avatarSelector = document.querySelector(avatarSelector);
+    this.form = document.querySelector(".popup");
   }
 
   getUserInfo() {
@@ -37,6 +38,7 @@ export default class UserInfo {
   }
 
   setUserAvatar(url) {
+    console.log(url);
     const saveButton = this.form.querySelector(".popup__button");
     saveButton.textContent = "guardando";
     api
